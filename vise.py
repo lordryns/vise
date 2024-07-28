@@ -40,11 +40,16 @@ can_launch_editor: bool = open_file_to_edit()
 def text_editor(file_path: str) -> None:
 	console.print(f"file open: [green]{file_path}")
 
+	for i in range(10):
+		console.input(f"{i + 1}|")
+
 if can_launch_editor: 
 	console.print("Hold on, setting up editor...")
 	with console.status("setting up..."):
 		time.sleep(1)
 		console.clear()
-		text_editor(file_path=current_file)
+		
+
+text_editor(file_path=current_file)
 
 
