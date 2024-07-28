@@ -1,19 +1,33 @@
 import rich 
 from rich.console import Console
 import time
+import os
 
 
 console = Console()
-
-console.print("[cyan]Hello [/]world, this was built with [yellow]Python.")
-
-name = console.input("Enter your name: ")
-with console.status("Loading", spinner='aesthetic'):
-	time.sleep(3)
-	console.print("Almost there...")
-	time.sleep(3)
-	console.print("Done!", style="green")
-	time.sleep(1)
-
-
 console.clear()
+
+current_file = None 
+
+def open_file_to_edit() -> bool:
+	global current_file
+	run = True 
+	while run: 
+		path = console.input("Enter the path of the file you want to edit: ")
+
+		if os.path.exists(path):
+			current_file = path
+			console.print(f"{path.split("/")[-1]} opened successfully!", style="green")
+			run = False
+			return True
+	
+		else:
+			console.print("File does not exist, perharps a typo?", style="red")
+
+		console.input("")
+		console.clear()
+		
+
+	return False
+
+can_launch_editor: bool = open_file_to_edit()
