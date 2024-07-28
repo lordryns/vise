@@ -31,3 +31,12 @@ def open_file_to_edit() -> bool:
 	return False
 
 can_launch_editor: bool = open_file_to_edit()
+
+if can_launch_editor: 
+	console.print("Hold on, setting up editor...")
+	with console.status("setting up..."):
+		time.sleep(1)
+		console.clear()
+		console.print("Done!", style="green")
+
+
