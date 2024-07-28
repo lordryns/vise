@@ -18,7 +18,8 @@ def open_file_to_edit() -> bool:
 
 		if os.path.exists(path):
 			current_file = path
-			console.print(f"{path.split("/")[-1]} opened successfully!", style="green")
+			split_path = path.split("/")[-1]
+			console.print(f"{split_path} opened successfully!", style="green")
 			run = False
 			return True
 	
