@@ -5,6 +5,7 @@ import os
 
 
 console = Console()
+console.set_window_title("Vise 1.0")
 console.clear()
 
 current_file = None 
