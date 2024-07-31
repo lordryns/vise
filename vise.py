@@ -40,11 +40,14 @@ can_launch_editor: bool = open_file_to_edit()
 def text_editor(file_path: str) -> None:
 	console.print(f"file open: [green]{file_path}")
 
-	with open(file_path,'r') as fp:
-		lines = fp.readlines()
+	try:
+		with open(file_path,'r') as fp:
+			lines = fp.readlines()
 
-	for i, line in enumerate(lines):
-		console.print(f"{i+1} {line}")
+		for i, line in enumerate(lines):
+			console.print(f"{i+1} {line}")
+	except Exception as e:
+		console.print(f"Error: [red]{e}")
 
 if can_launch_editor: 
 	console.print("Hold on, setting up editor...")
